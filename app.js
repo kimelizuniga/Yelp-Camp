@@ -6,6 +6,7 @@ var express        = require("express"),
     mongoose       = require("mongoose"),
     passport       = require("passport"),
     LocalStrategy  = require("passport-local"),
+    dotenv         = require('dotenv');
     flash          = require("connect-flash"),
     methodOverride = require("method-override"),
     Comment        = require("./models/comment"),
@@ -13,13 +14,21 @@ var express        = require("express"),
     User           = require("./models/user"),
     seedDb         = require("./seeds");
 
+dotenv.config();    
+var url = process.env.MONGODB_URI;
+
     //REQUIRING ROUTES
 var commentRoutes        = require("./routes/comments"),
     campgroundRoutes     = require("./routes/campgrounds"),
     reviewRoutes     = require("./routes/reviews"),
     indexRoutes          = require("./routes/index")
 
-mongoose.connect("mongodb://localhost/yelp_camp", {useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect(url,
+                 {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true }).then(() =>{
+                     console.log("Connected to Database!");
+                 }).catch(err => {
+                     console.log("ERROR", err.message);
+                 });
 mongoose.set('useFindAndModify', false);
 app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
