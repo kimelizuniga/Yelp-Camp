@@ -1,0 +1,38 @@
+.thumbnail img {
+    width: 100%;  
+}
+
+.thumbnail {
+    padding: 9px;
+}
+
+.thumbnail .caption-full {
+    padding: 9px;
+}
+
+.delete-form {
+    display: inline;
+}
+
+.formPlacement {
+    width: 30%;
+    margin: 25px auto;
+}
+
+.imgSize {
+    min-height: 200px;
+    max-height: 200px;
+}
+
+.orange {
+    color: orange;
+}
+
+.emptyStar {
+    color: white;
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
