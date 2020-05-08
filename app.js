@@ -55,6 +55,8 @@ app.use("/campgrounds/:id/comments", commentRoutes);
 app.use("/campgrounds/:id/reviews", reviewRoutes);
 app.use("/campgrounds", campgroundRoutes);
 
-app.listen(2000, function(){
-    console.log("Yelp Camp server '2000' initialized...")
-});
+let port = process.env.PORT;
+if (port == null || port == "") {
+  port = 3000;
+}
+app.listen(port);
