@@ -19,6 +19,12 @@
     margin: 25px auto;
 }
 
+
+
+.padTop {
+    padding-top: 4rem;
+}
+
 .imgSize {
     min-height: 200px;
     max-height: 200px;
@@ -35,4 +41,10 @@
 #map {
     height: 400px;
     width: 100%;
+}
+
+@media only screen and (max-width: 650px) {
+    .inputMob {
+        width: 50%;
+    }
 }
