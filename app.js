@@ -15,7 +15,7 @@ var express        = require("express"),
     seedDb         = require("./seeds");
 
 dotenv.config();    
-var url = process.env.MONGODB_URI;
+var url = process.env.MONGODB_URI || "mongodb://localhost/yelp_camp";
 
     //REQUIRING ROUTES
 var commentRoutes        = require("./routes/comments"),
